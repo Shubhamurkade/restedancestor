@@ -4,9 +4,9 @@ package handlers
 import (
 	"log"
 	"net/http"
+	"strconv"
 	"strings"
 	"unicode"
-	"strconv"
 
 	"github.com/bruno-chavez/restedancestor/database"
 	"github.com/bruno-chavez/restedancestor/quotes"
@@ -77,17 +77,17 @@ func Senile(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 }
 
 func Length(w http.ResponseWriter, _ *http.Request, p httprouter.Params) {
-
+	log.Println("test23")
 	word := p.ByName("len")
 
-	for _, r := range word { 
-		err := unicode.IsLetter(r) 
+	for _, r := range word {
+		err := unicode.IsLetter(r)
 		if err {
 			log.Fatal("Not a number")
 			return
 		}
-    }
-	
+	}
+
 	length, _ := strconv.ParseUint(word, 10, 32)
 	qs := repo.AllByLengthLessThanOrEqual(length)
 
