@@ -96,7 +96,6 @@ func (r Repository) AllByLengthLessThanOrEqual(length uint64) []Quote {
 
 	stmt, err := r.db.Prepare(str)
 
-	log.Println(strconv.FormatUint(length, 10))
 	if err != nil {
 		log.Fatal("Malformed SQL :" + err.Error())
 	}

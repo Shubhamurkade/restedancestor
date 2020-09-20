@@ -78,7 +78,6 @@ func Senile(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 
 func Length(w http.ResponseWriter, _ *http.Request, p httprouter.Params) {
 
-	log.Println("testing length")
 	word := p.ByName("len")
 
 	for _, r := range word { 
